@@ -1,0 +1,177 @@
+
+
+
+ECMASCRIPT 2015  --ES6
+
+
+MODULOS
+_________________________
+lib.js
+
+---------------
+
+export function halfOf(x) {
+return x / 2;
+}
+export function multiply(x, y) {
+return x * y;
+}
+
+Uso:
+
+import halfOf from 'lib';
+console.log(halfOf(84));
+
+
+Uso:
+
+import {halfOf, multiply} from 'lib';
+console.log(halfOf(84));
+console.log(multiply(21, 2));
+
+
+----------------------------------
+Otro ejemplo :
+
+export default function () {
+console.log('I did something')
+};
+
+Uso:
+
+import doSomething from 'doSomething';
+doSomething();
+
+
+-------------------------------------------
+
+CLASES
+
+-------------------------------------------
+class Vehicle {
+    constructor(wheels) {
+       this.wheels = wheels;
+    }
+
+    toString() {
+     return '(' + this.wheels + ')';
+    }
+}
+
+
+class Car extends Vehicle {
+       constructor(color) {
+           super(4);
+          this.color = color;
+        }
+
+    toString() {
+       return super.toString() + ' colored: ' + this.color;
+    }
+}
+
+let car = new Car('blue');
+car.toString();
+console.log(car instanceof Car);
+console.log(car instanceof Vehicle);
+
+
+---------------------------------------------
+
+
+ARROW FUNCTIONS
+
+_____________________________________________
+
+
+
+uso:
+
+const squares = numbers.map(n => n * n);
+
+
+
+otro uso:
+
+numbers.forEach(n => {
+          if (n % 2 === 0) evens.push(n);
+       });
+
+
+OTRO USO:
+
+
+const author = {
+        fullName: "Bob Alice",
+        books: [],
+        printBooks() {
+          this.books.forEach(book => console.log(book + ' by ' +
+         this.fullName));
+         }
+};
+
+
+
+--------------------------------------------
+
+LET Y CONST
+
+
+_____________________________________________
+
+
+
+DEFAULT, REST Y SPREAD
+
+________________________________________________
+
+
+características para los parámetros de funciones
+
+
+
+
+1---- default
+
+variable y establece por default a cero
+
+function add(x, y = 0) {
+   return x + y;
+}
+add(1)
+add(1,2)
+
+
+
+2 ------- rest    pasa un array como argumentos con los tres puntos
+
+function userFriends(user, ...friends) {
+console.log(user + ' has ' + friends.length + ' friends');
+}
+userFriends('User', 'Bob', 'Alice');
+
+
+
+3 ----- spread   vuelve un array en argumentos
+
+
+
+function userTopFriends(firstFriend, secondFriend, thirdFriends) {
+console.log(firstFriend);
+console.log(secondFriend);
+console.log(thirdFriends);
+}
+userTopFriends(...['Alice', 'Bob', 'Michelle']);
+
+
+-----------------------
+
+
+CLOSURES
+
+funciones que hacen referencia a variables de su entorno principal
+
+
+
+
+
