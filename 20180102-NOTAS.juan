@@ -1,5 +1,5 @@
 
-LIBRO 1- MEAN  
+LIBRO 1- MEAN
 
 ECMASCRIPT 2015  --ES6
 
@@ -171,6 +171,17 @@ CLOSURES
 
 funciones que hacen referencia a variables de su entorno principal
 
+
+----------------------------
+
+
+MIDDLEWARE
+
+función con tres argumesntos
+
+- req
+- res
+- next
 
 
 
