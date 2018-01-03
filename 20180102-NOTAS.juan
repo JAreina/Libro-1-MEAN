@@ -188,4 +188,118 @@ first in first out FIFO
 
 
 
+__________________
+
+
+EXPRESS
+
+
+__________________
+
+
+
+metodos de la app express
+
+- app.set(name,value)  : establecer variables de entorno que express utiliza
+
+- app.get(name)  : obtener variables de entorno que express usa en su configuración
+
+- app.engine(ext,callback) : definit motor de plantillas
+
+     ejemplo: app.engine('html', require('ejs').renderFile)
+
+- app.locals : propiedad usada para enviar variables a todas las plantillas renderizadas
+
+-  app.use([path], callback) : para crear middleware y manegar request enviadas al servidor. Tambien para responder a ciertas rutas
+
+- app.VERB(path, [callback...],callback) : para definir uno o varios middlewares para responder a requests a ciertas paths con verbos http declarados.
+
+          ejeemplo :   app.post('/', callback)
+                      app.get()
+
+- app.route(path).VERB([callback],callback) : para definir uno o varios middlewates para requests con multiples verbos http
+
+          ejemplo: app.route(parth).get(callback).post(callback)
+
+
+- app.param([name],callback) :   incluir parametros
+
+              app.param('userId', callback)
+
+
+
+
+--------------------
+
+
+Objeto request
+
+
+-------------------
+
+propiedades y métodos
+
+- req.query : propiedad contiene los query-string parametros
+- req.params : propiedad contiene los parametros de enrutamiento analizados parsed
+- req.body : recupera el cuerpo de la petición
+   esta incluido en el middleware bodyParser()
+
+- req.path  - req.hostname - req.ip : recuperar ruta de la petición el hostanamet y la ip remota
+
+- req.cookies : usado en conjunción con cookieParser(9 middleware recupera las cookies enviadas por el navegador
+
+
+TIENE MAS METODOS
+--------------------------
+
+
+OBJETO RESPONSE
+
+
+-----------------------------
+
+
+- res.status(code) : establecer en la respuesta el codigo de estado
+
+- res.set(field, [value]) : establecer caberecras
+
+- res.cookie(name,value,[options]) : establecer una cooke.
+ las opciones son la configuración de la cooke como maxAge propiedad
+
+ - res.redirect([status], url): redireccionar lal petición a una urel. codigo es opcional , por defecto 302 found
+
+ - res.status([status]).send([body]) : para non-streaming respuestas. establece content-type y content-Length cabeceras
+
+ -- res.status([status]).json([body]) : identico a res.send()
+ para enviar un objeto o array
+
+- res.render(view, [locals], callback) :
+   mostrar vistas y enviar html respuesta
+
+
+
+MIDDLEWARE EXTERNOS
+
+----------------------------
+
+* morgan: This is an HTTP request logger middleware.
+• body-parser: This is a body-parsing middleware that is used to parse the
+request body, and it supports various request types.
+• method-override: This is a middleware that provides HTTP verb support,
+such as PUT or DELETE, in places where the client doesn't support it.
+• compression: This is a compression middleware that is used to compress the
+response data using GZIP/deflate.
+• express.static: This is a middleware used to serve static files.
+• cookie-parser: This is a cookie-parsing middleware that populates the req.
+cookies object.
+• Session: This is a session middleware used to support persistent sessions.
+
+
+
+EStrucutra proyecto
+
+
+- horizontal : pequeños proyectos
+               separado en carpetas mvc
+- vertical : dividido en carpetas y archivos que impletentas su funcionalidad con una estructura mvc
 
