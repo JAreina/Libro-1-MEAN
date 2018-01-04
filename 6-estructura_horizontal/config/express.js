@@ -38,5 +38,8 @@ app.set('view engine','ejs');
   //la aplicación
   require('../app/routes/index.server.routes')(app);
 
+//servir archivos estáticos debajo del router como fotos
+app.use(express.static('./public'));
+
   return app;
 }
