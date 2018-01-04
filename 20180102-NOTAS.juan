@@ -316,3 +316,9 @@ VARIABLE : process.ENV
 -------------------------------
 vistas
 ----------------------------------------
+res.render()   // enviar HTML EN LA respuesta
+
+ENVIAR EMAIL : app.render()
+
+
+     
