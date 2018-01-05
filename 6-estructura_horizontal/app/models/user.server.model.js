@@ -10,9 +10,21 @@ const UserSchema = new Schema({
   email: String,
   nombreUsuario: {
     type: String,
-    trim: true
+    trim: true,
+    unique:true,
+    required:true
   },
-  password: String,
+  password: {
+    type:String,
+    index:true,
+    required: true,
+    match: /.+\@.+\..+/,
+    validate:[
+      function(password){
+        return password.length>=6;
+      },'PASSWORD DEBE SER MAYOR DE 6 CARACTERES'
+    ]
+  },
   created:{
     type: Date,
     default: Date.now
@@ -44,6 +56,10 @@ website: {
                     return url;
                 }
             }
+},
+role: {
+  type: String,
+  enum: ['Admin','Owner','User']
 }
 })
 
@@ -57,6 +73,40 @@ return this.nombre + ' ' + this.apellido;
   this.nombre = splitName[0] || ' ';
   this.apellido = splitName[1] || ' ';
 })
+//metodos estaticos personalizados
+UserSchema.statics.findUnoPorNombre = function(nombre,callback){
+  this.findOne({nombre: new RegExp(nombre,'i')},callback);
+}
+
+//metodos de instancia personalizados
+
+UserSchema.methods.autentica = function(password){
+  return this.password = password;
+}
+
+//validar datos en el modelo: validadores predefinidos y personalizados por ejemplo : required, match: expresionReg, rol  ----------enum['Admin',"User"]
+
+//************************
+
+// middlewares pre y post
+/*
+UserSchema.pre('save', function(next){
+if (...) {
+next()
+} else {
+next(new Error('An Error Occurred'));
+}
+});
+-------------------------------------
+UserSchema.post('save', function(next){
+console.log('The user "' + this.username + '"
+details were saved.');
+});
+
+*/
+
+
+
 
 
 UserSchema.set('toJSON',{getter: true, virtuals: true})
