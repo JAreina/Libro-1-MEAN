@@ -390,3 +390,11 @@ curl -X PUT -H "Content-Type: application/json" -d '{"apellido":
 borrar
 ------------
 curl -X DELETE localhost:3001/usuarios/5a4f4231a1125b26fdd9f6f5
+
+
+
+MODIFICADORES PREDEFINIDOS EN EL Schema
+---------------------
+VIRTUAL ATRIBUTOS
+para calcular dinamicamente  los datos que no están representados en el documento
+con el metodo virtual()
