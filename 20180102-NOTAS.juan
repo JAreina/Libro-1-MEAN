@@ -335,3 +335,32 @@ ENVIAR EMAIL : app.render()
      SELECT * FROM Posts WHERE Title LIKE '%mongo%';
 
 db.posts.find({ title:/mongo/ });
+
+
+
+
+
+
+
+mongoose
+
+
+traer unos campos determinados
+------------------------------------------------
+
+User.find({}, 'username email', (err, users) => {
+…
+});
+
+
+
+opciones
+----------------
+
+
+User.find({}, 'username email', {
+skip: 10,
+limit: 10
+}, (err, users) => {
+...
+});

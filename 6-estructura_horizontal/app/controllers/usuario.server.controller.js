@@ -17,12 +17,25 @@ exports.create = function(req,res,next){
 };
 // buscar usuarios
 exports.list = function(req,res,next){
-  Usuario.find({},(err,usuarios)=>{
+  Usuario.find({},'nombre email',(err,usuarios)=>{
     if(err){
        next(err);
     }else{
       res.status(200).json(usuarios)
     }
-  }
-)
+  })
 }
+// encontrar uno
+exports.read = function(req, res) {
+             res.json(req.user);
+};
+exports.userByID = function(req, res, next, id) {
+       Usuario.findOne({_id: id}, (err, usuario) => {
+                    if (err) {
+                    return next(err);
+                    } else {
+                    req.user = usuario;
+                    next();
+                    }
+});
+};
