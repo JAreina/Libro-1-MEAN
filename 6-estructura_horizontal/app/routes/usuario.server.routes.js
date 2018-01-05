@@ -7,6 +7,7 @@ module.exports= function(app){
 
   app.route('/usuarios/:userId')
         .get(usuarios.read)
+        .put(usuarios.update)
 
   app.param('userId', usuarios.userByID);
 }

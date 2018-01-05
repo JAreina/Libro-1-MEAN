@@ -364,3 +364,23 @@ limit: 10
 }, (err, users) => {
 ...
 });
+COMPROBAR rutas
+
+
+en terminal linux
+
+grabar usuarios
+-------------------------
+
+curl -X POST -H "Content-Type: application/json" -d
+'{"nombre":"Eva",
+"apellido":"Last","email":"user@example.com",
+"nombreUsuario":"username","password":"password"}' localhost:3001/usuarios
+
+
+
+
+actualizar usuarios
+----------------------------
+curl -X PUT -H "Content-Type: application/json" -d '{"apellido":
+"CAMBIADO"}' localhost:3001/usuarios/5a4f4231a1125b26fdd9f6f5

@@ -39,3 +39,14 @@ exports.userByID = function(req, res, next, id) {
                     }
 });
 };
+/// actualizar uno
+exports.update = function(req, res, next) {
+        Usuario.findByIdAndUpdate(req.user.id, req.body,
+          {'new': true  }, (err, user) => {
+                    if (err) {
+                    return next(err);
+                    } else {
+                    res.status(200).json(user);
+                    }
+});
+};
