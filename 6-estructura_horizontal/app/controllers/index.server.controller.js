@@ -15,6 +15,7 @@ exports.render = function(req,res){
 
   // renderizar vista
   res.render('index',{
-    title: 'fluctuat nec mergitur'
+    title: 'fluctuat nec mergitur',
+    userFullName: req.user ? req.user.fullName: ''
   })
 }

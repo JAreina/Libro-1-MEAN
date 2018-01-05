@@ -1,5 +1,8 @@
 // ruta a Usuario
 const usuarios = require('../controllers/usuario.server.controller');
+const passport = require('passport');
+
+
 module.exports= function(app){
   app.route('/usuarios')
         .post(usuarios.create)
@@ -11,4 +14,18 @@ module.exports= function(app){
         .delete(usuarios.delete)
 
   app.param('userId', usuarios.userByID);
+
+  /* AUTENTICACIÓN*/
+  app.route('/signup')
+        .get(usuarios.renderSignup)
+        .post(usuarios.signup);
+
+  app.route('/signin')
+        .get(usuarios.renderSignin)
+        .post(passport.authenticate('local', {
+                          successRedirect: '/', // DONDE REDIRECCIONAR SI SE AUTENTICA
+                          failureRedirect: '/signin', // DONDE SI FALLA AUTENTICACIÓN
+                          failureFlash: true // DICE A PASSPOR SI USA O NO FLASH MENSAJES
+        }));
+app.get('/signout', usuarios.signout);
 }

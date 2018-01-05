@@ -8,7 +8,8 @@ const compress = require('compression')// comprimir response middleware
 const bodyParser = require('body-parser'); //para manejar datos de la requests
 const methodOverride = require('method-override')//provee verbos PUT Y DELETE
 const session = require('express-session');// manejar la sesion de usuario
-
+const flash = require('connect-flash') // Transferiir mensajes antes de redirigir a otras paginas
+const passport = require('passport');
 
 
 
@@ -44,6 +45,12 @@ app.use(session({
 app.set('views', './app/views');
 app.set('view engine','ejs');
 
+// mensajes al usuarios
+app.use(flash());
+
+//  registrar passport en EXPRESS
+app.use(passport.initialize());// arranca el modulo Passport
+app.use(passport.session());//para mantener la session de usuario
 
   // requiere el archivo de esta ruta y lo llama como una función pasando como argumento
   //la aplicación

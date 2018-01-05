@@ -438,3 +438,31 @@ con DBref que contiene el ObjectId y el nombre de la coleccion referenciada
 Post.find().populate('author').exec((err, posts) => {
 ...
 });
+************************************
+*************************************
+PASSPORT middleware
+*******************************************
+********************************************
+diferentes modulos con diferentes estrategias para hacer la autenticación
+- user name - password
+- OAuth
+instalar y configurar la estrategia que vaayamos a usar.
+
+      LOCAL ESTRATEGY
+            mecanismo de autenticaión de usuario y contraseña
+
+
+            instalar otro modulo: npm install --save passport-local
+
+
+
+
+  ********************
+
+  MODULO CONNECT-FLASH PARA MOSTRAR ERRORES
+
+
+   Transferiir mensajes antes de redirigir a otras paginas
+
+
+   
