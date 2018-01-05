@@ -321,4 +321,17 @@ res.render()   // enviar HTML EN LA respuesta
 ENVIAR EMAIL : app.render()
 
 
-     
+
+
+
+
+     MONGO
+
+
+     -----------------
+
+
+
+     SELECT * FROM Posts WHERE Title LIKE '%mongo%';
+
+db.posts.find({ title:/mongo/ });

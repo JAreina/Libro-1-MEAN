@@ -11,6 +11,7 @@ const session = require('express-session');// manejar la sesion de usuario
 
 
 
+
 module.exports = function(){
   const app = express();
 
