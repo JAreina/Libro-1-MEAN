@@ -8,7 +8,7 @@ exports.create = function(req,res,next){
 
   user.save((err)=>{
     if(err) {
-      return next(err);
+      return console.log(err);
   }else{
     res.status(200).json(user);
   }

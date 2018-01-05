@@ -48,6 +48,8 @@ app.set('view engine','ejs');
   // requiere el archivo de esta ruta y lo llama como una función pasando como argumento
   //la aplicación
   require('../app/routes/index.server.routes')(app);
+  //ruta de usuarios
+  require('../app/routes/usuario.server.routes.js')(app);
 
 //servir archivos estáticos debajo del router, como fotos
 app.use(express.static('./public'));
