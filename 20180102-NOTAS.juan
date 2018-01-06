@@ -468,8 +468,11 @@ instalar y configurar la estrategia que vaayamos a usar.
      PASSPORT STRATEGY OAuth
      ***************************
 
+    facebook: npm install --save passport-facebook
 
 
+    craear  app : developer.facebook.com
+              clave secreta  e identificador de la application
 
 
-     
+              

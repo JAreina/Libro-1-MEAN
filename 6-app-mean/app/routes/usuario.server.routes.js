@@ -28,4 +28,18 @@ module.exports= function(app){
                           failureFlash: true // DICE A PASSPOR SI USA O NO FLASH MENSAJES
         }));
 app.get('/signout', usuarios.signout);
+
+
+
+
+  /* autenticacion facebook*/
+  app.get('/oauth/facebook', passport.authenticate('facebook', {
+                          failureRedirect: '/signin'
+  }));
+  app.get('/oauth/facebook/callback', passport.authenticate('facebook',
+  {
+  failureRedirect: '/signin',
+  successRedirect: '/'
+  }));
+
 }

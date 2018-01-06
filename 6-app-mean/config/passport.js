@@ -21,4 +21,6 @@ passport.deserializeUser((id, done) => {
 
 // incluir configurarción de estrategia local
 require('./strategies/local.js')();
-};
+//cargar estrategia Facebook
+require('./strategies/facebook.js')();
+}
