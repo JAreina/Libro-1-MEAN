@@ -18,7 +18,7 @@ const UserSchema = new Schema({
   },
   password: {
     type:String,
-    required: true,
+  //  required: true,
     index: true,
     validate:[
       function(password){

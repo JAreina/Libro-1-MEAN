@@ -26,7 +26,7 @@ passport.use(new FacebookStrategy({
                       firstName: profile.name.givenName,
                       lastName: profile.name.familyName,
                       fullName: profile.displayName,
-                      email: profile.emails[0].value,
+                    //email: profile.emails[0].value,
                       username: profile.name.givenName + profile.name.familyName,
                       provider: 'facebook',
                       providerId: profile.id,

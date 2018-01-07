@@ -147,7 +147,7 @@ exports.signout = function(req, res) {
 /* aUTH AUTENTENICACION DE USUARIO*/
 exports.saveOAuthUserProfile = function(req, profile, done) {
 	// Try finding a user document that was registered using the current OAuth provider
-	User.findOne({
+	Usuario.findOne({
 		provider: profile.provider,
 		providerId: profile.providerId
 	}, (err, user) => {
@@ -161,12 +161,12 @@ exports.saveOAuthUserProfile = function(req, profile, done) {
 				const possibleUsername = profile.username || ((profile.email) ? profile.email.split('@')[0] : '');
 
 				// Find a unique available username
-				User.findUniqueUsername(possibleUsername, null, (availableUsername) => {
+				Usuario.findUniqueUsername(possibleUsername, null, (availableUsername) => {
 					// Set the available user name
 					profile.username = availableUsername;
 
 					// Create the user
-					user = new User(profile);
+					user = new Usuario(profile);
 
 					// Try saving the new user document
 					user.save(function(err) {
